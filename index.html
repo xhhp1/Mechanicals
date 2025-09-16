@@ -1,6 +1,91 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+  <meta charset="UTF-8">
+  <title>تقرير كراج الميكانيكي</title>
+  <style>
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: #e6c200;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #e6c200;
+    }
+
+    .section-block {
+      margin-bottom: 15px;
+      padding: 10px;
+      background: #1b1b1b;
+      border: 1px solid #000000;
+      border-radius: 6px;
+    }
+
+    .group-title {
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .units-list {
+      margin-bottom: 6px;
+    }
+
+    /* === Yellow buttons === */
+    button {
+      background-color: #FFD700;   /* Gold/Yellow */
+      color: #000;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+    button:hover {
+      background-color: #e6c200;
+    }
+
+    .add-unit-btn {
+      margin-top: 6px;
+    }
+
+    .remove-btn {
+      background-color: #FFD700;
+      color: #000000;
+      border: none;
+      padding: 2px 8px;
+      border-radius: 50%;
+      margin-right: 5px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .remove-btn:hover {
+      background-color: #e6c200;
+    }
+
+    .unit-row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .unit-prefix, .unit-code {
+      padding: 4px;
+    }
+
+    .report-output {
+      background: #000000;
+      color: #e6c200;
+      padding: 10px;
+      border-radius: 6px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>🛠 مسميات وتقارير العمليات 🛠</title>
@@ -10,7 +95,7 @@
     background-size: cover;
     margin: 0;
     font-family: Arial, sans-serif;
-    color: YELLOW;
+    color: white;
     text-align: center;
   }
   h2 {
@@ -270,7 +355,7 @@
      ======================= -->
 <div class="container" id="reportContainer">
   <h1>تقرير كراج الميكانيكي</h1>
-  <form id="reportForm" onsubmit="return false;">
+<form id="reportForm" onsubmit="return false;">
     <div class="section-block">
       <label>رقم التقرير:</label>
       <input type="text" id="reportNumber" class="report-input" placeholder="مثال: 5" oninput="updatePreview()">
@@ -428,6 +513,12 @@
       <button type="button" onclick="exportReport()">تحديث التقرير</button>
       <button type="button" onclick="copyReport()">نسخ التقرير</button>
     </div>
+  </form>
+
+  <div class="export" style="margin-top:12px;">
+    <h2 style="color:#FFD700; text-align:center;">نموذج التقرير:</h2>
+    <pre id="reportPreview" class="report-output"></pre>
+  </div>
   </form>
 
   <div class="export" style="margin-top:12px;">
@@ -868,4 +959,3 @@ function exportReport() {
 </script>
 </body>
 </html>
-
